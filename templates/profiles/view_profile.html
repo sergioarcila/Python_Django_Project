@@ -1,0 +1,136 @@
+{% extends "partials/base.html" %}
+{% load crispy_forms_tags %}
+{% block head %}
+{%endblock%}
+  {% block content %}
+  <!-- header end -->
+  <div class="content">
+    <div class="container">
+
+      {% if user.is_authenticated %}{% if profile.id == request.user.playerprofile.id%}{% if request.user.sub_status.status == False%}{%include 'partials/payment-warning.html'%}{%endif%}{%endif%}{%endif%}
+      <div class="profiletop">
+        <div class="profilepic">
+          <div>
+          <div class="">
+            {%if profile.prof_pic_uploadcare%}<img src="{{profile.prof_pic_uploadcare.cdn_url}}" alt="">
+            {%else%}<img src="https://gladstoneentertainment.com/wp-content/uploads/2018/05/avatar-placeholder-300x300@2x.gif" alt="">
+            {%endif%}
+          </div>
+          </div>
+        </div>
+        <div class="maininfo">
+          <div class="maintop submargin0">
+            <div style="display: flex;">
+              {% if profile.user.first_name %}<h2 style="display: inline-block;">{{profile.user.first_name}} {%endif%}
+                {% if profile.user.last_name %}{{profile.user.last_name}} | {%endif%}
+                    {% if profile.jersey_number %}#{{profile.jersey_number}}</h2>{%endif%}
+                    {% if user.is_authenticated %}{% if user.playerprofile %}{% if user.playerprofile.id == profile.id %}
+                      <a id="editprofile" class="buttonmain" href="{% url 'edit_profile' user.playerprofile.id %}">Edit Profile</a>
+                    {% endif %}{% endif %}{% endif %}
+            </div>
+            {% if profile.primary_position %}<h3>{{profile.primary_position}}</h3>{%endif%}
+            {% if profile.grad_year %}<h4>{{profile.grad_year}}</h4>{%endif%}
+          </div>
+          <div class="mainlow submargin0">
+            <div><h5>High School</h5>
+              {% if profile.high_school %}<div>{{profile.high_school}}</div>{%endif%}
+            </div>
+            <div><h5>Location</h5><div>{% if profile.location_town %}{{profile.location_town}}, {%endif%}
+              {% if profile.location_state %}{{profile.location_state}}{%endif%}</div></div>
+            <div><h5>Travel Team</h5>{% if profile.travel_team %}<div>{{profile.travel_team}}</div>{%endif%}</div>
+            <div><h5>Contact</h5><div>bescoutednow@gmail.com</div></div>
+            <div><h5>GPA</h5>{% if profile.gpa %}<div>{{profile.gpa}}</div>{%endif%}</div>
+            <div><h5>Socials</h5><div><div class="footer-icons">
+              <ul>
+                <li>
+                  {% if profile.facebook %}<a href="{{profile.facebook}}"><i class="fa fa-facebook"></i></a>{%endif%}
+                </li>
+                <li>
+                  {% if profile.twitter %}<a href="{{profile.twitter}}"><i class="fa fa-twitter"></i></a>{%endif%}
+                </li>
+                <li>
+                  {% if profile.instagram %}<a href="{{profile.instagram}}"><i class="fa fa-instagram"></i></a>{%endif%}
+                </li>
+              </ul>
+            </div></div></div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="stats">
+        <div class="statslist">
+          <div><h5>Athletic information</h5>
+{% if profile.primary_position %}<p><span class="listname">Primary Position:</span> {{profile.primary_position}}&nbsp;{%endif%}
+{% if profile.secondary_position %}<br><span class="listname">Secondary Position:</span> {{profile.secondary_position}}&nbsp;{%endif%}
+{% if profile.height %}<br><span class="listname">Height:&nbsp;</span>{{profile.height}}"{%endif%}
+{% if profile.weight %}<br><span class="listname">Weight:</span>&nbsp;{{profile.weight}} lbs.{%endif%}
+{% if profile.dominant_hand %}<br><span class="listname">Dominant Hand:</span>&nbsp;{{profile.dominant_hand}}{%endif%}
+{% if profile.vertical_leap %}<br><span class="listname">Vertical Leap: <span style="color: #000000;">{{profile.vertical_leap}}"</span></span>{%endif%}
+{% if profile.ppg %}<br><span class="listname">Points Per Game:</span> {{profile.ppg}}{%endif%}
+{% if profile.apg %}<br><span class="listname">Assist Per Game:</span> {{profile.apg}}{%endif%}
+{% if profile.rpg %}<br><span class="listname">Rebounds Per Game:</span> {{profile.rpg}}{%endif%}
+{% if profile.free_throw_perc %}<br><span class="listname">Free Throw Percentage:</span> {{profile.free_throw_perc}}%{%endif%}
+{% if profile.three_point_perc %}<br><span class="listname">Three Pointer Percentage:</span> {{profile.three_point_perc}}%</p>{%endif%}
+          </div>
+        </div>
+        <div class="statslist">
+          <div><h5>Academic information</h5>
+<p>
+  <!-- <span class="listname">Desired College(s):</span>&nbsp;Missouri (Verbal) -->
+{% if profile.gpa %}<br><span class="listname">GPA:</span> {{profile.gpa}}{%endif%}
+{% if profile.act_score %}<br><span class="listname">ACT Score:</span> {{profile.act_score}}{%endif%}
+<br><span class="listname">Reading SAT:</span> {% if profile.reading_sat %} {{profile.reading_sat}}{%else%}Not taken yet{%endif%}
+<br><span class="listname">Math SAT:</span> {% if profile.math_sat %} {{profile.math_sat}}{%else%}Not taken yet{%endif%}
+{% if profile.academic_honors_awards %}<br><span class="listname">Academic Reward:</span> {{profile.academic_honors_awards}}{%endif%}
+{% if profile.ncaa_elig_num %}<br><span class="listname">NCAA Eligibility #: </span>{{profile.ncaa_elig_num}}{%endif%}
+{% if profile.naia_elig_num %}<br><span class="listname">NAIA Eligibility #:</span> {{profile.naia_elig_num}}&nbsp;</p>{%endif%}
+          </div>
+        </div>
+      </div>
+      {% if profile.scouting_report %}<div class="scoutreport">
+      <hr>
+        <h3 class="text-center">Scouting Report</h3>
+        <div>{{profile.scouting_report}}</div>
+      </div>{%endif%}
+      {% if highlightid %}<div class="highlightvideo text-center">
+      <hr>
+        <h3>Highlight Video</h3>
+        <div>
+        <iframe src="https://www.youtube.com/embed/{{highlightid}}" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>{%endif%}
+      <hr>
+      {% if skillsid %}<div class="highlightvideo text-center">
+        <h3>Skills Video</h3>
+        <div>
+        <iframe src="https://www.youtube.com/embed/{{skillsid}}" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>{%endif%}
+      {% if profile.personal_message %}<div class="pmessage">
+      <hr>
+        <h3 class="text-center">Personal Message</h3>
+        <div>{{profile.personal_message}}</div>
+      </div>{%endif%}
+      <div class="photos text-center blank-auto">
+        <hr>
+        <h3>Photos</h3>
+        <div class="fotorama"
+        data-maxheight="500"
+        style="
+        justify-content: center;
+        display: flex;">
+          <img src="https://s.fotorama.io/1.jpg">
+          <img src="https://s.fotorama.io/2.jpg">
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- Start Slider Area -->
+
+  <!-- End Contact Area -->
+    {% endblock %}
+  <!-- Start Footer bottom Area -->

@@ -1,0 +1,26 @@
+{% extends "partials/base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+  {% block content %}
+
+  <!-- header end -->
+  <div class="content">
+    <div class="container text-center">
+
+    <h1 style="padding: 80px;" class="mt-c row">{% trans "Verify Your E-mail Address" %}</h1>
+
+    <h5 style="padding-bottom: 160px;">{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</h5>
+
+      <!-- <form class="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{userform|crispy}}
+        <button class="buttonmain" type="submit" name="button">Submit</button>
+      </form> -->
+    </div>
+  </div>
+  <!-- Start Slider Area -->
+
+  <!-- End Contact Area -->
+
+  {% endblock %}

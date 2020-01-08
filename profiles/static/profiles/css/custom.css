@@ -1,0 +1,208 @@
+.credits {
+  color: rgba(204, 204, 204, 0.18);
+}
+.credits a {
+  color: rgba(204, 204, 204, 0.18);
+}
+/* .container {
+    margin: auto;
+    background: rgb(6, 144, 181);
+    max-width: 1000px;
+    border-left: 1px rgb(156, 156, 156) solid;
+    border-right: 1px rgb(156, 156, 156) solid;
+    height: 100vh;
+} */
+.profilepic {
+}
+.profilepic:first-child {
+  width: 100%;
+  max-width: 350px;
+  margin: auto;
+  padding: 4.5%;
+  background: rgb(252, 252, 252);
+  border: 1px rgb(179, 179, 179) solid;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.27);
+}
+.profilepic div div{
+  padding-top: 100%;
+  width: 100%;
+  border: 1px rgb(156, 156, 156) solid;
+  display: flex;
+  box-sizing: content-box;
+  position: relative;
+  overflow: hidden;
+}
+.profilepic img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+
+}
+.maininfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* justify-content: space-between;
+  align-items: stretch; */
+  margin: 0 0 0 12px;
+}
+.maintop {
+  margin-bottom: 25px;
+}
+.maintop h2{
+  font-weight: 600;
+}
+.mainlow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 10px;
+}
+.profiletop {
+  display: grid;
+  grid-template-columns: 1fr 60%;
+  padding-top: 18px;
+  grid-column-gap: 10px;
+}
+.stats {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.statslist {
+  display: flex;
+  justify-content: center;
+}
+.statslist div p {
+    display: inline-block;
+}
+.statslist div h5 {
+    display: block;
+    text-align: center;
+}
+.submargin0 * {
+  margin: 0;
+}
+.highlightvideo div iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0; top: 0;
+}
+.highlightvideo div {
+  position: relative;
+width: 100%;
+height: 0;
+padding-bottom: 51%;
+}
+.listname {
+  color: #029cb4;
+  font-weight: 500;
+}
+.pprofilepic:first-child {
+  width: 100%;
+  max-width: 240px;
+  margin: auto;
+  padding: 4.5%;
+  background: rgb(252, 252, 252);
+  border: 1px rgb(179, 179, 179) solid;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.27);
+}
+.pprofilepic div div{
+  padding-top: 100%;
+  width: 100%;
+  border: 1px rgb(156, 156, 156) solid;
+  display: flex;
+  box-sizing: content-box;
+  position: relative;
+  overflow: hidden;
+}
+.pprofilepic img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+
+}
+.pmaininfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 12px;
+}
+.pprofile {
+  margin: 15px auto;
+  display: grid;
+  max-width: 600px;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 18px;
+  grid-column-gap: 10px;
+}
+.buttonmain {
+  display: block;
+  background: rgb(27, 41, 91);
+  border: 1px solid rgb(27, 41, 91);
+  color: #fff;
+  margin: 5px;
+  margin-bottom: 15px;
+  padding: 7px 21px;
+  text-transform: uppercase;
+  transition: all 0.4s ease 0s;
+  border-radius: 30px;
+
+}
+.buttonmain:hover {
+  background: rgb(255, 255, 255)
+}
+
+.mt-c {
+  margin-top: 10px;
+
+}
+
+.invalid-feedback {
+  color: rgb(209, 0, 0);
+}
+
+#editprofile {
+  padding: 5px 17px;
+  margin-bottom: 0px;
+  margin: auto auto auto 14px;
+}
+.pay-form form {
+  display: block;
+}
+.pay-form {
+  display: flex;
+}
+.pay-form form input {
+  margin: 0 auto 10px auto;
+
+}
+.pay-form div {
+  display: block;
+  margin: auto;
+}
+#logo-small {
+  height: 50px;
+}
+.page-intro{
+  font-size: 20px; line-height: 1.9;
+}
+.quotation-color{
+   color: rgb(249, 99, 31);
+}
+.page-copy {
+  padding: 40px 20px;
+  line-height: 1.9;
+  font-size: 20px;
+  font-weight: 500;
+}
+.sign-link-color {
+  color: rgb(242, 97, 34);
+}
+
+.content{
+  min-height: calc(100% - 483px);
+}

@@ -1,0 +1,43 @@
+{% extends "partials/base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+  {% block content %}
+
+  <!-- header end -->
+  <div class="content">
+    <div class="container">
+      <h1>{% trans "Sign Up" %}</h1>
+
+      <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}" class="sign-link-color">sign in</a>.{% endblocktrans %}</p>
+      {% if formtitle %}<h2 class="text-center mt-c">{{ formtitle }}</h2>{%endif%}
+      <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+        {% csrf_token %}
+        {{ form.first_name|as_crispy_field }}
+        {{ form.last_name|as_crispy_field }}
+        {{ form.email|as_crispy_field }}
+        {{ form.password1|as_crispy_field }}
+        {{ form.tos|as_crispy_field }}
+        <a target="_blank" href="https://drive.google.com/open?id=12ik4_c4cQdQ2x8tKkGAbVSTL0QfjI5bF" class="sign-link-color">Terms of Service</a>
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button class="buttonmain" type="submit">{% trans "Sign Up" %} &raquo;</button>
+      </form>
+
+      <!-- <form class="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{userform|crispy}}
+        <button class="buttonmain" type="submit" name="button">Submit</button>
+      </form> -->
+      <div class="container mt-c">
+        <div class="row text-center page-copy">
+          <p class="page-intro">
+        You are almost there.  Signing up with BSN will get you that much closer to playing at the next level.  The journey getting there will be one of the most memorable experiences of your early life.  Dedication, strong work ethic and self motivation are all keys to everyone's ultimate success and at BSN we applaud you for taking this next BIG step in your athletic career.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+  <!-- End Contact Area -->
+
+  {% endblock %}

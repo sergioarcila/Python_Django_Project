@@ -1,0 +1,37 @@
+{% extends "partials/base.html" %}
+{% load crispy_forms_tags %}
+{% block head %}
+<script>
+  UPLOADCARE_PUBLIC_KEY = 'c27723d6ca59c2d2ff01';
+  UPLOADCARE_TABS = 'file url facebook';
+  UPLOADCARE_EFFECTS = 'crop,rotate';
+  UPLOADCARE_IMAGES_ONLY = true;
+  UPLOADCARE_PREVIEW_STEP = true;
+</script>
+
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+<script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.js"></script>
+
+<script>
+  uploadcare.registerTab('preview', uploadcareTabEffects)
+</script>
+{% endblock %}
+  {% block content %}
+
+  <!-- header end -->
+  <div class="content">
+    <div class="container">
+      {% if request.user.sub_status.status == False%}{%include 'partials/payment-warning.html'%}{%endif%}
+      {% if formtitle %}<h2 class="text-center mt-c">{{ formtitle }}</h2>{%endif%}
+      <form class="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button class="buttonmain" type="submit" name="button">Submit</button>
+      </form>
+    </div>
+  </div>
+  <!-- Start Slider Area -->
+
+  <!-- End Contact Area -->
+
+  {% endblock %}

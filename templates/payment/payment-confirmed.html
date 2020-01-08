@@ -1,0 +1,24 @@
+{% extends "partials/base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+  {% block content %}
+
+  <!-- header end -->
+  <div class="content">
+    <div class="container">
+      <h1 style="padding: 40px;" class="mt-c row">Thank You for Your Payment</h1>
+      <div style="padding-bottom: 90px;
+      display: flex;" class="">
+        <h5 style="display: inline-block;
+        margin: auto 0;">Create your profile now!</h5><a id="editprofile" class="buttonmain" href="{% url 'create'%}">Create Profile</a>
+      </div>
+
+
+<!-- writes out the form tag automatically -->
+<!-- {{ form.render }} -->
+</div>
+</div>
+<!-- End Contact Area -->
+
+{% endblock %}

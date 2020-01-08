@@ -1,0 +1,20 @@
+{% extends "partials/base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+  {% block content %}
+
+  <!-- header end -->
+  <div class="content">
+    <div class="container text-center">
+      <h1 style="padding: 40px;" class="mt-c row">Your Payment Was Canceled</h1>
+
+      <h5 style="padding-bottom: 90px;">To return to payment click <a href="{% url 'signup-pay'%}">here.</a> </h5>
+
+<!-- writes out the form tag automatically -->
+<!-- {{ form.render }} -->
+</div>
+</div>
+<!-- End Contact Area -->
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "partials/base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="content">
+    <div class="container" style="padding:15px;">
+
+
+<form class="login" method="POST" action="{% url 'account_login' %}">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <a class="button secondaryAction sign-link-color" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <button class="buttonmain" type="submit">{% trans "Sign In" %}</button>
+  </form>
+  <div class="container mt-c">
+    <div class="row text-center page-copy">
+      <p class="page-intro">
+            “It takes three things to be a “SPECIAL PLAYER”; TALENT, CHARACTER and COMPETITIVE FIRE.”</p>
+        <p class="page-intro">-Kevin Eastman </p>
+  </div>
+  </div>
+
+{% endblock %}

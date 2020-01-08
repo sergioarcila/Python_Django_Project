@@ -1,0 +1,39 @@
+{% extends "partials/base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+  {% block content %}
+
+  <!-- header end -->
+  <div class="content">
+    <div class="container">
+      <h1 class="text-center mt-c" style="padding: 20px;">Pay Now With PayPal</h1>
+       <!--
+      <h3 class="error">Your payment did not go to through, please try again.</h3> -->
+<!-- writes out the form tag automatically -->
+<div style="margin-bottom: 25px;" class="pay-form">
+  <div class="col-md-4 col-sm-4 col-xs-12 align-self-center ">
+          <div class="pri_table_list active">
+            <span class="saleon">-- New --</span>
+            <h3>BSN Yearly<br/></h3>
+            <ol>
+              <li class="check">Online Recruiting Profile</li>
+              <li class="check">Video Editing</li>
+              <li class="check">SOCIAL MEDIA PROMOTIONS</li>
+              <li class="check">COLLEGE COACHES EXPOSURE</li>
+              <li class="check">Recommendations to College Coaches</li>
+              <li class="check">Future Career Opportunities</li>
+            </ol>
+            {{ form.render }}
+          </div>
+          <p class="text-center">By signing up you are agreeing to our <br>
+  <a target="_blank" href="https://drive.google.com/open?id=12ik4_c4cQdQ2x8tKkGAbVSTL0QfjI5bF"> Service Contract</a></p>
+
+        </div>
+
+</div>
+</div>
+</div>
+<!-- End Contact Area -->
+
+{% endblock %}

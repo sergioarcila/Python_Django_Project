@@ -1,0 +1,21 @@
+{% extends "partials/base.html" %}
+{% load crispy_forms_tags %}
+  {% block content %}
+
+  <!-- header end -->
+  <div class="content">
+    <div class="container">
+      {% if formtitle %}<h2 class="text-center mt-c">{{ formtitle }}</h2>{%endif%}
+      <form class="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{userform|crispy}}
+        {{form|crispy}}
+        <button class="buttonmain" type="submit" name="button">Submit</button>
+      </form>
+    </div>
+  </div>
+  <!-- Start Slider Area -->
+
+  <!-- End Contact Area -->
+
+  {% endblock %}

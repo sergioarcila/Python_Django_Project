@@ -1,0 +1,47 @@
+{% extends "partials/base.html" %}
+{% load crispy_forms_tags %}
+  {% block content %}
+
+  <!-- header end -->
+  <div class="content">
+    <div class="container">
+      <h2 class="text-center mt-c">All Players</h2>
+        {% for profile in profiles %}
+        {%if profile.user.sub_status.status == True%}
+          <div class="pprofile">
+            <div class="pprofilepic">
+              <div>
+              <div class="">
+                {%if profile.prof_pic_uploadcare.cdn_url%}<img src="{{profile.prof_pic_uploadcare.cdn_url}}" alt="">
+                {%else%}<img src="https://gladstoneentertainment.com/wp-content/uploads/2018/05/avatar-placeholder-300x300@2x.gif" alt="">
+                {%endif%}
+              </div>
+              </div>
+            </div>
+            <div class="pmaininfo">
+              <h3>{{profile.user.first_name}} {{profile.user.last_name}}</h3>
+              <p>Class: {{profile.grad_year}}</p>
+              <p>Position: {{profile.primary_position}}</p>
+              <p>GPA: {{profile.gpa}}</p>
+              <a class="buttonmain"href="{% url 'view_profile' profile.id%}">VIEW PROFILE</a>
+            </div>
+          </div>
+          {% else %}
+          {% endif %}
+        {% endfor %}
+        <!-- page introduction -->
+        <div class="container mt-c">
+            <div class="row text-center page-copy">
+                <p class="page-intro">
+                    ARE YOU READY TO BE YOUR VERY BEST SELF?  You have our entire team working for you and your best interests! We’ll help you find the <span class="quotation-color">RIGHT FIT</span> for your next step to collegiate basketball. Our coaching, training, monitoring and motivation will guide you to the BEST/RIGHT choices over this dynamic journey you are about to partake!</p>
+            </div>
+        </div>
+        <!-- End page introduction -->
+    </div>
+  </div>
+
+  <!-- Start Slider Area -->
+
+  <!-- End Contact Area -->
+
+  {% endblock %}
